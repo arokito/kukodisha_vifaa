@@ -28,19 +28,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{route('items.create')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add item</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/item-list" class="nav-link">
+                <a href="{{route('items.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Item list</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/rented-list" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rented list</p>
                 </a>
@@ -57,13 +57,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/add-category" class="nav-link active">
+                <a href="{{route('categories.create')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/category-list" class="nav-link">
+                <a href="{{route('categories.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Category list</p>
                 </a>

@@ -53,7 +53,7 @@ class ItemController extends Controller
        
 
        notify()->success('Data saved⚡️');
-       return redirect('items.create');
+       return redirect()->route('items.index');
         
         
     }
@@ -78,7 +78,8 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item =Item::find($id);
+        return view('items.edit',compact('item'));
     }
 
     /**
@@ -90,7 +91,12 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Item::find($id);
+        
+        $item->update($request->all());
+
+        notify()->success('Edited⚡️');
+        return redirect()->route('items.index');
     }
 
     /**
