@@ -45,9 +45,12 @@ class ItemController extends Controller
             'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price'=>'required'
        ]
-       );
-       $image =time().'.'.$request->photo->extension();
-       $request->photo->move(public_path('uploads'), $image);
+         );
+    $image =time().'.'.$request->photo->extension();
+        $request->photo->move(public_path('uploads'), $image);
+    //    $name = $request->file('photo')->getClientOriginalName();
+ 
+    //  $request->file('photo')->store('/uploads',$name);
        
       Item::create($request->all());
        
