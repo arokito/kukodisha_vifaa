@@ -6,7 +6,7 @@
 
 <div class="card">
            <div class="card-header">
-             <h3 class="card-title">DataTable with default features</h3>
+             <h3 class="card-title">LIST OF ITEMS REGISTERD</h3>
            </div>
            <div class="row">
            <!-- /.card-header -->
@@ -46,14 +46,14 @@
                  </td>
              <td>
                      <a href="{{route('items.edit',[$item->id])}}">
-                     <i class="fas fa-edit"></i>
+                     <i class="fas fa-edit text-success"></i>
                  </a>
                  
                  </td>
                  
                  <td>
                  <a href="#" data-toggle="modal" data-target="#exampleModal{{$item->id}}">
-                     <i class="fas fa-trash"></i>
+                     <i class="fas fa-trash text-danger"></i>
                  </a>
                      <!-- Modal -->
            <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

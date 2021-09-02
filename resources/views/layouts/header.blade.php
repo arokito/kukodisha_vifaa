@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <!-- select2 -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
+  <link href="{{asset('plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
   <!-- summernote -->
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <link href="{{asset('plugins/dropzone/dropzone.css')}}" rel="stylesheet">
@@ -42,11 +42,11 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="/profile/view_profile" class="dropdown-item">
             <i class="fas fa-user mr-2"></i>Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="/profile/change_password" class="dropdown-item">
             <i class="fas fa-key mr-2"></i>Change Password
           </a>
           <div class="dropdown-divider"></div>

@@ -22,7 +22,8 @@
 
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('plugins/dist/js/demo.js')}}"></script>
 <!-- summernote -->
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
@@ -44,6 +45,15 @@
 <script src="{{asset('datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
 
+
+
+
+
+
+
+
+
+
 <script>
   $(function () {
      //Initialize Select2 Elements
@@ -52,24 +62,18 @@
      //Run summernote
      $('#item_description').summernote();
 
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-
-
+     //$("#example1").DataTable();
   });
 </script>
+
+<script>
+$(document).ready(function() {
+    $('#example1').DataTable( {
+        "order": [[ 3, "desc" ]]
+    } );
+} );
+</script>
+
 
 </body>
 </html>

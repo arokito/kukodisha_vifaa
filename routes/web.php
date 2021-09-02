@@ -20,10 +20,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/add-category', function () {
-    return view('add-category');
-});
-
+Route::get('profile/change_password', 'Profile@changePassword');
+Route::get('profile/view_profile', 'Profile@viewProfile');
 
 Route::resource('items', 'ItemController');
 Route::resource('categories', 'CategoryController');
