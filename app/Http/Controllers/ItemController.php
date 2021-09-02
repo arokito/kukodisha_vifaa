@@ -17,7 +17,11 @@ class ItemController extends Controller
         $item =Item::all();
         return view('items.index',compact('item'));
     }
-
+     
+    public function homePage(){
+        $item = Item::all();
+        return view('homepage', compact('item'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -42,12 +46,14 @@ class ItemController extends Controller
             'name'=>'required',
             'category'=>'required',
             'description'=>'required',
-            'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'price'=>'required'
+            'photo'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            'price'=>'required',
+            'item_number' => 'required'
        ]
        );
-       $image =time().'.'.$request->photo->extension();
-       $request->photo->move(public_path('uploads'), $image);
+       $photo = $request->file('photo');
+       $photoName = time().'.'.$request->photo->extention();
+       $photo->move(public_path('uploads'), $photoName);
        
       Item::create($request->all());
        

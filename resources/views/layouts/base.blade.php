@@ -1,6 +1,5 @@
 @include('layouts.header')
 
-
   <!-- Main Sidebar Container -->
  @include('layouts.sidenav')
 
