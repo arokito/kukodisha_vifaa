@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Item;
 
-class ItemController extends Controller
+use App\Models\User;
+
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +16,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $item =Item::all();
-        return view('items.index',compact('item'));
+        return view('users.index');
     }
-     
-    public function homePage(){
-        $item = Item::all();
-        return view('homepage', compact('item'));
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,9 +26,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-       return view('items.create');
-
-        
+        return view ('users.create');
     }
 
     /**
@@ -42,28 +37,24 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
-            'name'=>'required',
-            'category'=>'required',
-            'description'=>'required',
-            'photo'=>'required|image|mimes:jpeg,png,jpg|max:2048',
-            'price'=>'required',
-            'item_number' => 'required'
+        $request->validate([
+            'f_name'=>'required',
+            'l_name'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'password'=>'required',
+           
        ]
        );
-       $photo = $request->file('photo');
-       $photoName = time().'.'.$request->photo->extention();
-       $photo->move(public_path('uploads'), $photoName);
+     
        
-      Item::create($request->all());
+      User::create($request->all());
        
 
        notify()->success('Data saved⚡️');
-       return redirect()->route('items.index');
-        
+       return redirect()->route('users.index');
         
     }
-
 
     /**
      * Display the specified resource.
@@ -84,8 +75,7 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        $item =Item::find($id);
-        return view('items.edit',compact('item'));
+        //
     }
 
     /**
@@ -97,12 +87,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Item::find($id);
-        
-        $item->update($request->all());
-
-        notify()->success('Edited⚡️');
-        return redirect()->route('items.index');
+        //
     }
 
     /**
