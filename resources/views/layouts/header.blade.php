@@ -9,15 +9,23 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+  
+<!-- datatable -->
+<link href="{{asset('plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
+  <link href="{{asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+  
   <!-- select2 -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <link href="{{asset('plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
+
   <!-- summernote -->
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
   <link href="{{asset('plugins/dropzone/dropzone.css')}}" rel="stylesheet">
+
   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('dist/img/favicon.png')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

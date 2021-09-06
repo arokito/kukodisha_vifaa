@@ -26,6 +26,10 @@ Route::get('profile/view_profile', 'Profile@viewProfile');
 Route::resource('items', 'ItemController');
 Route::resource('categories', 'CategoryController');
 
+Route::get('apis/sms', 'ApiController@smsIndex');
+
+
+
 Route::get('/login', function () {
     return view('login');
 });

@@ -98,7 +98,15 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         $item = Item::find($id);
-        
+        $request->validate([
+            'name'=>'required',
+            'category'=>'required',
+            'description'=>'required',
+            'photo'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            'price'=>'required',
+            'item_number' => 'required'
+       ]
+       );
         $item->update($request->all());
 
         notify()->success('Edited⚡️');
@@ -114,5 +122,8 @@ class ItemController extends Controller
     public function destroy($id)
     {
         //
+        $item = Item::find($id);
+        $item->delete();
+        return redirect()->route('items.index')->with('message', 'deleted successfully');
     }
 }

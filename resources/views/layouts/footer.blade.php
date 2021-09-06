@@ -17,18 +17,7 @@
 
 <!-- Bootstrap 4 -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- Select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-<!-- AdminLTE App -->
-<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('plugins/dist/js/demo.js')}}"></script>
-<!-- summernote -->
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
-<!-- dropzone -->
-<script src="{{asset('plugins/dropzone/dropzone.js')}}"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="{{asset('datatables/jquery.dataTables.min.js')}}"></script>
@@ -46,12 +35,18 @@
 
 
 
+<!-- Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('plugins/dist/js/demo.js')}}"></script>
+<!-- summernote -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-
-
-
-
+<!-- dropzone -->
+<script src="{{asset('plugins/dropzone/dropzone.js')}}"></script>
 
 
 <script>
@@ -59,21 +54,16 @@
      //Initialize Select2 Elements
      $('.category').select2();
 
+     //initilize datatable
+     $("#item_list").Datatable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
      //Run summernote
      $('#item_description').summernote();
 
-     //$("#example1").DataTable();
   });
 </script>
-
-<script>
-$(document).ready(function() {
-    $('#example1').DataTable( {
-        "order": [[ 3, "desc" ]]
-    } );
-} );
-</script>
-
-
 </body>
 </html>
