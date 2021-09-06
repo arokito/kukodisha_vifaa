@@ -31,123 +31,78 @@
       <form action="{{route('users.store')}}" method="post">
       @csrf
         <div class="row">
-      
-             <div class="input-group mb-3">
-             <input type="text" class="form-control" placeholder="First name" name="f_name">
-        
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-user"></span>
-              </div>
-            
-            </div>
-          </div>
-              @error('f_name')
+             <div class="form-group ">
+             <label for="">First Name</label>
+             <input type="text" class="form-control @error('f_name') is-invalid @enderror" placeholder="First name" name="f_name">
+             @error('f_name')
               <span class="text-danger">
               {{$message}}
               </span>
               @enderror
+            </div>
          </div>
 
-        <div class="row">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Last name" name="l_name">
-        
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-       
-          </div>
-        </div>
-        @error('l_name')
-        <span class="text-danger">
-         {{$message}}
-        </span>
-         @enderror
-        </div>
-       
 
-        <div class="row">
-          <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="email">
-               
-            <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-        
-          </div>
-                @error('email')
-                    <span class="text-danger">
-                    {{$message}}
-                    </span>
-                      @enderror
-           </div>
-    </div>
-
-        <div class="row">
-          <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Phone" name="phone">
-               
-            <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-phone"></span>
-            </div>
-        
-          </div>
-         
-        </div>
-        @error('phone')
+         <div class="row">
+             <div class="form-group ">
+             <label for="">Last Name</label>
+             <input type="text" class="form-control @error('l_name') is-invalid @enderror" placeholder="Last name" name="l_name">
+             @error('l_name')
               <span class="text-danger">
               {{$message}}
               </span>
-                @enderror
-</div>
-
-     
-
-        <div class="row">
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              @enderror
             </div>
-          </div>
-        </div>
-        @error('password')
+         </div>
+
+
+         <div class="row">
+             <div class="form-group ">
+             <label for="">Email</label>
+             <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email name" name="email">
+             @error('email')
               <span class="text-danger">
               {{$message}}
               </span>
-                @enderror
-</div>
-
-     <div class="row">
-     <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              @enderror
             </div>
-          </div>
-        </div>
-        </div>
+         </div>
 
-
-     </div>
-
-
-     
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label>
+         <div class="row">
+             <div class="form-group ">
+             <label for="">Phone</label>
+             <input type="text" class="form-control @error('phone') is-invalid @enderror" placeholder="Enter Phone" name="phone">
+             @error('phone')
+              <span class="text-danger">
+              {{$message}}
+              </span>
+              @enderror
             </div>
-          </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group ">
+             <label for="">Password</label>
+             <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="First name" name="password">
+             @error('password')
+              <span class="text-danger">
+              {{$message}}
+              </span>
+              @enderror
+            </div>
+         </div>
+    
+         <div class="row">
+             <div class="form-group ">
+             <label for="">Confirm Password</label>
+             <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Confirm Password" name="password">
+             @error('password')
+              <span class="text-danger">
+              {{$message}}
+              </span>
+              @enderror
+            </div>
+         </div>
           <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
