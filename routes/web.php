@@ -25,6 +25,7 @@ Route::get('profile/view_profile', 'Profile@viewProfile');
 
 Route::resource('items', 'ItemController');
 Route::resource('categories', 'CategoryController');
+Route::resource('users', 'UserController');
 
 Route::get('apis/sms', 'ApiController@smsIndex');
 
