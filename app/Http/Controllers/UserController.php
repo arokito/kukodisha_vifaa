@@ -16,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $user =User::all();
+        return view('users.index',compact('user'));
     }
 
     /**
@@ -37,12 +38,12 @@ class UserController extends Controller
      * 
      */
 
-     public function sendSMS($phone_number,$validation_code,$f_name){
+     public function sendSMS($phone_number,$validation_code,$f_name,$la_name){
 
         $api_key='8d4664249a9132c9';
         $secret_key = 'NDY1OWQ2N2JkOTgzZmRlZjBlNjlhZTUyZDY4ODVlMzM2MjFhMDEwY2YwZDI4MzFkZmJhMGM3ODFkMGRiMjhmNg==';
         
-        $message = "Welcome" . $f_name . "Your verification code is" .$validation_code;
+        $message = "Welcome ". $f_name ." ".$la_name."  Your verification code is " .$validation_code;
         
      
 
@@ -118,7 +119,7 @@ class UserController extends Controller
           ]
       );
       //dd($data);
-       $this->sendSMS($request->phone, $this->randomNumber(), $request->f_name);
+       $this->sendSMS($request->phone, $this->randomNumber(), $request->f_name,$request->l_name);
 
 
 
@@ -170,6 +171,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('users.index')->with('message', 'deleted successfully');
     }
 }
