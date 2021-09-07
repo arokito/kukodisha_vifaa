@@ -15,6 +15,7 @@
                <tr>
                  <th>#</th>
                  <th>Item Name</th>
+                 <th>Item Photo</th>
                  <th>Item Categry</th>
                  <th>Description</th>
                  <th>Price</th>
@@ -30,6 +31,9 @@
                  <td>
                    {{$item->name}}
                  </td>
+                 <td>
+                   <img src="{{asset('uploads')}}/{{$item->product_photo}}" class="img-thumbnail" style="width:100px;height:100px;">
+                  </td>
                  <td>
                    {{$item->category}}
                  </td>
@@ -79,7 +83,7 @@
               </tr>
                @endforeach
               @else
-              <td>No data from db</td>
+              <td colspan="8" class="text-danger text-center">You have not recorded any item yet</td>
               @endif
               </tbody>
 
@@ -87,6 +91,7 @@
              <tr>
                  <th>#</th>
                  <th>Item Name</th>
+                 <th>Item Photo</th>
                  <th>Item Categry</th>
                  <th>Description</th>
                  <th>Price</th>

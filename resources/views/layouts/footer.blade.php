@@ -18,6 +18,10 @@
 <!-- Bootstrap 4 -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
+<!-- Toast plugins -->
+@jquery
+@toastr_js
+@toastr_render
 
 <!-- DataTables  & Plugins -->
 <script src="{{asset('datatables/jquery.dataTables.min.js')}}"></script>

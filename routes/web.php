@@ -27,7 +27,11 @@ Route::resource('items', 'ItemController');
 Route::resource('categories', 'CategoryController');
 Route::resource('users', 'UserController');
 
-Route::get('apis/sms', 'ApiController@smsIndex');
+Route::get('apis/sms', 'SMSController@smsIndex');
+
+Route::post('/storeSMSCredentials', 'SMSController@store');
+Route::get('/checkout' , 'PesaController@index');
+Route::post('/pesapalIframe', 'PesaController@pesaPalIframe');
 
 
 

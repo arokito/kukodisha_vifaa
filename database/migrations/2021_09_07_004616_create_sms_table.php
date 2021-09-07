@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemsTable extends Migration
+class CreateSmsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,11 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('sms', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('category');
-            $table->string('description');
-            $table->string('product_photo');
-            $table->string('price');
-            $table->integer('item_number');
-            
-
-
-
+            $table->string('api_provider');
+            $table->string('api_key');
+            $table->string('api_secret_key');
             $table->timestamps();
         });
     }
@@ -36,6 +29,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('sms');
     }
 }

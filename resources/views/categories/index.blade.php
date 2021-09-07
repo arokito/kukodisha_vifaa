@@ -1,22 +1,20 @@
 
    @extends('layouts.base')
-
    @section('content')
    <div class="container-fluid">
-
    <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">ALL SYSTEM CATEGORY</h3>
               </div>
               <div class="row">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="item_list" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>#</th>
                     <th>Category Name</th>
-                    <th>Action</th>
+                    <th colspan="2">Action(s)</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -30,14 +28,14 @@
                     </td>
                 <td>
                         <a href="{{route('categories.edit',[$category->id])}}">
-                        <i class="fas fa-edit"></i>
+                        <i class="text-success fas fa-edit"></i>
                     </a>
                     
                     </td>
                     
                     <td>
                     <a href="#" data-toggle="modal" data-target="#exampleModal{{$category->id}}">
-                        <i class="fas fa-trash"></i>
+                        <i class="text-danger fas fa-trash"></i>
                     </a>
                         <!-- Modal -->
               <div class="modal fade" id="exampleModal{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,7 +70,7 @@
                   <tr>
                     <th>#</th>
                     <th>Category Name</th>
-                    <th>Action</th>
+                    <th colspan="2">Action(s)</th>
                   </tr>
                   </tfoot>
                 </table>

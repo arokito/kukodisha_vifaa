@@ -46,20 +46,35 @@ class ItemController extends Controller
             'name'=>'required',
             'category'=>'required',
             'description'=>'required',
-            'photo'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            'product_photo'=>'required|mimes:jpeg,png,jpg|max:2048',
             'price'=>'required',
             'item_number' => 'required'
-       ]
-       );
-       $photo = $request->file('photo');
-       $photoName = time().'.'.$request->photo->extention();
-       $photo->move(public_path('uploads'), $photoName);
-       
-      Item::create($request->all());
-       
+       ]);
 
-       notify()->success('Data saved⚡️');
-       return redirect()->route('items.index');
+        $photo = $request->file('product_photo');
+        $photoName = time(). '.' .$photo->getClientOriginalExtension();
+        $photo->move(public_path('uploads'),$photoName);
+        
+
+      $insert_item = Item::create([
+
+            'name' => $request->name,
+            'category' => $request->category,
+            'description' =>$request->description,
+            'product_photo' => $photoName,
+            'price' => $request->price,
+            'item_number' => $request->item_number
+      ]);
+
+       //dd($request->all());
+        if($insert_item){
+            toastr()->success('ITEM ADDED','Item has been added successfully!');
+            return redirect()->route('items.index');
+        }else{
+            oastr()->error('ITEM NOT ADDED','Something is wrong');
+            return redirect()->route('items.index');
+        }
+      
         
         
     }
@@ -102,15 +117,34 @@ class ItemController extends Controller
             'name'=>'required',
             'category'=>'required',
             'description'=>'required',
-            'photo'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            'photo'=>'required|mimes:jpeg,png,jpg|max:2048',
             'price'=>'required',
             'item_number' => 'required'
        ]
        );
-        $item->update($request->all());
 
-        notify()->success('Edited⚡️');
-        return redirect()->route('items.index');
+       $photo = $request->file('product_photo');
+        $photoName = time(). '.' .$photo->getClientOriginalExtension();
+        $photo->move(public_path('uploads'),$photoName);
+
+
+        $update_item = $item->update([
+            'name' => $request->name,
+            'category' => $request->category,
+            'description' =>$request->description,
+            'product_photo' => $photoName,
+            'price' => $request->price,
+            'item_number' => $request->item_number
+        ]);
+
+        if($update_item){
+            toastr()->success('ITEM UPDATED','Item has been Updated successfully!');
+            return redirect()->route('items.index');
+        }else{
+            oastr()->error('ITEM NOT UPDATED','Something is wrong');
+            return redirect()->route('items.index');
+        }
+      
     }
 
     /**
@@ -123,7 +157,15 @@ class ItemController extends Controller
     {
         //
         $item = Item::find($id);
-        $item->delete();
-        return redirect()->route('items.index')->with('message', 'deleted successfully');
+        $item_delete = $item->delete();
+
+        if($item_delete){
+            toastr()->success('ITEM DELETED','Item has been Deleted successfully!');
+            return redirect()->route('items.index');
+        }else{
+            oastr()->error('ITEM NOT DELETED','Something is wrong');
+            return redirect()->route('items.index');
+        }
+        
     }
 }

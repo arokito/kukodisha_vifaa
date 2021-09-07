@@ -20,7 +20,7 @@
       <div class="row">
       <div class="form-group col-6">
         <label for="exampleInputEmail1">Item Name</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter item name" name="name">
+        <input type="text" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter item name" name="name">
         @error('name')
         <span class="text-danger">
          {{$message}}
@@ -30,7 +30,7 @@
 
       <div class="form-group col-6">
         <label for="exampleInputPassword1">Item Category</label>
-       <select name="category" class="form-control category   @error('category')  is-invalid @enderror"> 
+       <select name="category" value="{{old('category')}}" class="form-control category   @error('category')  is-invalid @enderror"> 
          <option value="">--Select Item Category---</option>
          @foreach(App\Models\Category::all() as $category )
          <option value="{{$category->id}}">{{$category->name}}</option>
@@ -47,8 +47,20 @@
     <div class="row">
       <div class="form-group col-12">
         <label for="exampleInputEmail1">Item Description</label>
-        <input type="textarea" name="description" id="item_description" class="form-control @error('description') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter description">
+        <input type="textarea" value="{{old('description')}}" name="description" id="item_description" class="form-control @error('description') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter description">
         @error('description')
+        <span class="text-danger">
+         {{$message}}
+        </span>
+      @enderror
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-12">
+        <label for="exampleInputEmail1">Upload Photos</label>
+        <input type="file" value="{{old('product_photo')}}" name="product_photo" id="" class="form-control @error('photo_name') is-invalid @enderror" id="exampleInputEmail1">
+        @error('photo_name')
         <span class="text-danger">
          {{$message}}
         </span>
@@ -63,7 +75,7 @@
     <div class="row">
       <div class="form-group col-6">
         <label for="exampleInputPassword1">How Many Items?</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="number of Items" name="item_number">
+        <input type="text" value="{{old('item_number')}}" class="form-control" id="exampleInputPassword1" placeholder="number of Items" name="item_number">
         @error('item_number')
         <span class="text-danger">
          {{$message}}
@@ -72,7 +84,7 @@
       </div>
       <div class="form-group col-6">
         <label for="exampleInputPassword1">Price($)</label>
-        <input type="text" class="form-control @error('price') is-invalid @enderror" id="exampleInputPassword1" placeholder="Price" name="price">
+        <input type="text" value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" id="exampleInputPassword1" placeholder="Price" name="price">
         @error('price')
         <span class="text-danger">
          {{$message}}
