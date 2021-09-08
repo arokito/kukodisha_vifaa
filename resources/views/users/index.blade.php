@@ -76,7 +76,7 @@
                </tr>
                @endforeach
               @else
-              <td>No data from db</td>
+              <td colspan ="5" class="text-danger text-center">No data from db</td>
              @endif
 
                </tbody>

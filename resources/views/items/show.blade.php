@@ -11,7 +11,7 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="startbootstrap-shop-homepage-gh-pages/css/styles.css" rel="stylesheet" />
+        <link href="{{asset('startbootstrap-shop-item-gh-pages/css/styles.css')}}">
     </head>
     <body>
         <!-- Navigation-->
@@ -47,9 +47,9 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ asset('uploads')}}/{{ $item->product_photo}}" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">SKU: BST-498</div>
+                        <div class="small mb-1">{{$item->name}}</div>
                         <h1 class="display-5 fw-bolder">Shop item template</h1>
                         <div class="fs-5 mb-5">
                             <span class="text-decoration-line-through">$45.00</span>
@@ -75,7 +75,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -180,6 +180,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="startbootstrap-shop-homepage-gh-pages/js/scripts.js"></script>
+        <script src="{{asset('startbootstrap-shop-item-gh-pages/js/scripts.js')}}"></script>
     </body>
 </html>
