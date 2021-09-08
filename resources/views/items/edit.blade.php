@@ -29,6 +29,8 @@
       @enderror
       </div>
 
+      
+
       <div class="form-group col-6">
         <label for="exampleInputPassword1">Item Category</label>
        <select name="category" class="form-control category   @error('category')  is-invalid @enderror"> 
